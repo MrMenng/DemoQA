@@ -8,11 +8,16 @@ repositories {
 
 dependencies {
     testImplementation(
-            'org.junit.jupiter:junit-jupiter:5.9.0'
+            'com.codeborne:selenide:7.5.1',
+            'org.junit.jupiter:junit-jupiter:5.11.2'
 
     )
 }
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
