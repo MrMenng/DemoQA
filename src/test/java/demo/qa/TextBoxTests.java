@@ -13,7 +13,7 @@ public class TextBoxTests {
     @BeforeAll
     static void configure() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.timeout = 50000;
+        Configuration.timeout = 10000;
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1280";
         Configuration.pageLoadStrategy = "none";
@@ -28,10 +28,9 @@ public class TextBoxTests {
         $("#permanentAddress").setValue("Address 2");
         $("#submit").click();
 
-        $("#submit").click();
-        $("#output").$("name").shouldHave(text("Egor"));
-        $("#output").$("email").shouldHave(text("Egor@egor.com"));
-        $("#output").$("currentAddress").shouldHave(text("Address 1"));
-        $("#output").$("permanentAddress").shouldHave(text("Address 1"));
+        $("#output").$("#name").shouldHave(text("Egor"));
+        $("#output").$("#email").shouldHave(text("Egor@egor.com"));
+        $("#output").$("#currentAddress").shouldHave(text("Address 1"));
+        $("#output").$("#permanentAddress").shouldHave(text("Address 2"));
     }
 }
