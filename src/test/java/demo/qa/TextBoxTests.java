@@ -1,5 +1,6 @@
 package demo.qa;
 
+import Pages.RegPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,8 +22,13 @@ public class TextBoxTests {
 
     @Test
     void fillFormTest() {
-        open("/text-box");
-        $("#userName").setValue("Egor");
+        String userName = "Egor";
+
+        new RegPage().openPage();
+
+        new RegPage().setUserName(userName);
+        new RegPage().setUserEmail("Egor@egor.com");
+
         $("#userEmail").setValue("Egor@egor.com");
         $("#currentAddress").setValue("Address 1");
         $("#permanentAddress").setValue("Address 2");
